@@ -130,7 +130,6 @@
 
       <div class="form-group">
         <label><input type="radio" id="sudent" name="designation" value="student" required /> Student</label>
-        <br>
         <label><input type="radio" id="employee" name="designation" value="employee" required />Employee </label>
         </div>
 
