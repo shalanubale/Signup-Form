@@ -1,10 +1,101 @@
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Signup Form - Secure and responsive user registration.">
-  <link rel="stylesheet" href="styles.css">
+  <title>Responsive Signup Form</title>
   <link rel="icon" href="favicon.ico">
+
+  <!-- Embedded CSS -->
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f7f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    header, main, footer {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      color: #555;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      margin-bottom: 5px;
+      display: block;
+      font-weight: bold;
+    }
+
+    input[type="email"],
+    input[type="password"],
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .form-group input[type="radio"],
+    .form-group input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    .error-message {
+      color: red;
+      font-size: 0.85em;
+      margin-top: 5px;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #formMessage {
+      margin-top: 15px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      header, main, footer {
+        margin: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -39,7 +130,7 @@
       </div>
 
       <div class="form-group">
-        <p>Gender:</p>
+        <label>Gender:</label>
         <label><input type="radio" name="gender" value="male" required /> Male</label>
         <label><input type="radio" name="gender" value="female" required /> Female</label>
         <label><input type="radio" name="gender" value="other" required /> Other</label>
@@ -58,6 +149,53 @@
     <p>&copy; 2025 Your Company. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Embedded JavaScript -->
+  <script>
+    document.getElementById('signupForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const email = document.getElementById('email');
+      const password = document.getElementById('password');
+      const confirmPassword = document.getElementById('confirm-password');
+      const formMessage = document.getElementById('formMessage');
+
+      let isValid = true;
+
+      // Reset messages
+      document.getElementById('emailError').textContent = '';
+      document.getElementById('passwordError').textContent = '';
+      document.getElementById('confirmPasswordError').textContent = '';
+      formMessage.textContent = '';
+
+      // Email validation
+      const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+      if (!emailPattern.test(email.value)) {
+        document.getElementById('emailError').textContent = 'Enter a valid email address.';
+        isValid = false;
+      }
+
+      // Password validation
+      if (password.value.length < 8) {
+        document.getElementById('passwordError').textContent = 'Password must be at least 8 characters.';
+        isValid = false;
+      }
+
+      // Confirm password match
+      if (password.value !== confirmPassword.value) {
+        document.getElementById('confirmPasswordError').textContent = 'Passwords do not match.';
+        isValid = false;
+      }
+
+      // Final result
+      if (isValid) {
+        formMessage.style.color = 'green';
+        formMessage.textContent = 'Form submitted successfully!';
+        // Optionally reset the form: this.reset();
+      } else {
+        formMessage.style.color = 'red';
+        formMessage.textContent = 'Please correct the highlighted errors.';
+      }
+    });
+  </script>
 </body>
 </html>
