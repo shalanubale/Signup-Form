@@ -9,7 +9,7 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: #f4f7f8;
+      background: #000000;
       margin: 0;
       padding: 0;
     }
