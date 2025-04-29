@@ -129,11 +129,9 @@
       </div>
 
       <div class="form-group">
-        <label>Gender:</label>
-        <label><input type="radio" name="gender" value="male" required /> Male</label>
-        <label><input type="radio" name="gender" value="female" required /> Female</label>
-        <label><input type="radio" name="gender" value="other" required /> Other</label>
-      </div>
+        <label><input type="radio" value="student" required /> Student</label>
+        <label><input type="radio" value="employee" required />Employee </label>
+        </div>
 
       <div class="form-group">
         <label><input type="checkbox" name="terms" required /> I agree to the Terms and Conditions</label>
