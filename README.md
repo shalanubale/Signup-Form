@@ -129,8 +129,8 @@
       </div>
 
       <div class="form-group">
-        <label><input type="radio" value="student" required /> Student</label>
-        <label><input type="radio" value="employee" required />Employee </label>
+        <label><input type="radio" name="sudent" value="student" required /> Student</label>
+        <label><input type="radio" name="employee" value="employee" required />Employee </label>
         </div>
 
       <div class="form-group">
